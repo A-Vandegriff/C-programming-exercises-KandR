@@ -9,8 +9,8 @@ int main(void) {
   int words[WORDLENGTH];
   int i, j, state, c, count;
 
-   state = OUT;
-   count = 0;
+  state = OUT;
+  count = 0;
 
   for (i = 0; i < WORDLENGTH; i++) {
     words[i] = 0;
@@ -21,11 +21,11 @@ int main(void) {
     if (c == ' ' || c == '\n' || c == '\t') {
       if (state == IN) {
         state = OUT;
-	
-	if(count >= WORDLENGTH)
-		words[WORDLENGTH-1]++;
-	else
-        	words[count]++;
+
+        if (count >= WORDLENGTH)
+          words[WORDLENGTH - 1]++;
+        else
+          words[count]++;
 
         count = 0;
       }
@@ -35,16 +35,14 @@ int main(void) {
       }
       count++;
     }
-}
-    if (state == IN) {
-	if(count >= WORDLENGTH){
-		words[WORDLENGTH-1]++;
-		}
-	else{
-		words[count]++;
-	}
-
-	}
+  }
+  if (state == IN) {
+    if (count >= WORDLENGTH) {
+      words[WORDLENGTH - 1]++;
+    } else {
+      words[count]++;
+    }
+  }
 
   for (i = 1; i < WORDLENGTH; i++) {
     printf("%d: ", i);
