@@ -1,1 +1,0 @@
-This repository is for storing my exercises from the book, "The C Programming Language" by Brain W. Kernigan and Dennis M. Ritchie. This book is known as the bible for learning the C language and has lessons that come with complex exercises.
