@@ -1,27 +1,23 @@
 #include <stdio.h>
 
-#define CHARS 256
+#define FIRST 33
+#define LAST 127
 
-int main(void){
+int main(void) {
 
-int c,i,j;
-int chars[CHARS];
+  int c, i, j;
+  int chars[LAST - FIRST] = {0};
 
-	for(i = 0; i < CHARS; i++){
-		chars[i] = 0;
-	}
-
-	while((c = getchar()) != EOF){
-		if(c >= 33 && c < 127){
-			chars[c]++;
-        	}
-	}
-	for(i = 33;i<127;i++){
-		printf("%c:", i);
-		for(j = 0; j<chars[i]; j++){
-			printf("-");
-		}
-		printf("\n");
-	}
+  while ((c = getchar()) != EOF) {
+    if (c >= FIRST && c < LAST) {
+      chars[c-FIRST]++;
+    }
+  }
+  for (i = 0; i < LAST-FIRST; i++) {
+    printf("%c:", i + FIRST);
+    for (j = 0; j < chars[i]; j++) {
+      printf("-");
+    }
+    printf("\n");
+  }
 }
-
