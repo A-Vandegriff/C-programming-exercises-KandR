@@ -4,12 +4,17 @@
 #define UPPER 300
 #define STEP 20
 
-int main(void){
+void conversion(int lower, int upper, int step);
 
-int fahr;
+int main(void) {
+  conversion(LOWER, UPPER, STEP);
+  return 0;
+}
 
-for(fahr = LOWER; fahr <= UPPER; fahr = fahr + STEP)
-	printf("%3d %6.1f\n", fahr, (5.0/9.0)*(fahr-32));
+void conversion(int lower, int upper, int step) {
 
-	return 0;
+  int fahr;
+
+  for (fahr = lower; fahr <= upper; fahr = fahr + step)
+    printf("%3d %6.1f\n", fahr, (5.0 / 9.0) * (fahr - 32));
 }
