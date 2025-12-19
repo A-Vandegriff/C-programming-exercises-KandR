@@ -20,7 +20,11 @@ int main(void) {
     }
   if (max > 0)
     printf("%s", longest);
-  return 0;
+	if(max == MAXLINE-2 && longest[MAXLINE-2] != '\n'){
+		max += get_line(line, MAXLINE);
+		printf("%d", max);
+	}
+    return 0;
 }
 
 int get_line(char s[], int lim) {
