@@ -6,25 +6,33 @@ int get_line(char line[], int maxline);
 void copy(char to[], char from[]);
 
 int main(void) {
-  int len;
-  int max;
+
   char line[MAXLINE];
   char longest[MAXLINE];
+  int curLen;
+  int maxLen;
+  int len;
+  maxLen = 0;
+  // represents the length of a single line
+  while ((len = get_line(line, MAXLINE)) > 0) {
+    curLen += len;
+    // if there is a newline, the line ends
+    if (line[len - 1] == '\n') {
+      // Dont count the \n
+      curLen--;
 
-  max = 0;
-
-  while ((len = get_line(line, MAXLINE)) > 0)
-    if (len > max) {
-      max = len;
-      copy(longest, line);
+      if (curLen > maxLen) {
+        maxLen = curLen;
+        copy(longest, line);
+      }
+      // since the currLine ends, curLen = 0
+      curLen = 0;
     }
-  if (max > 0)
-    printf("%s", longest);
-	if(max == MAXLINE-2 && longest[MAXLINE-2] != '\n'){
-		max += get_line(line, MAXLINE);
-		printf("%d", max);
-	}
-    return 0;
+  }
+  if (maxLen > 0)
+    printf("%s\n", longest);
+  printf("length: %d\n", maxLen);
+  return 0;
 }
 
 int get_line(char s[], int lim) {
@@ -36,6 +44,7 @@ int get_line(char s[], int lim) {
     s[i] = c;
     i++;
   }
+
   s[i] = '\0';
   return i;
 }
