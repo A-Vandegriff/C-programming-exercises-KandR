@@ -9,12 +9,14 @@ int len;
 char arr[MAXLINE];
 
 while((len = get_line(arr, MAXLINE)) > 0){
-
+if(len > 0 && arr[len-1] == '\n'){
+	arr[--len] = '\0';
+}
 while(len > 0 && (arr[len-1] == '\t' || arr[len-1] == ' ')){
 arr[--len] = '\0';
 }
 if(len > 0 && arr[0] != '\n'){
-printf("%s", arr);
+printf("%s\n", arr);
 }
 }
 return 0;
