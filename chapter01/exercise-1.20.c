@@ -19,14 +19,16 @@ col = 0;
 blank = 0;
 
 while((c = getchar()) != EOF){
-	col++;
+	if(c != '\t' && c != '\n'){
+		printf("%d: ", col);
+		printf("%c\n", c);
+		col++;
+	}
 	if(c == '\n'){
-		col = 0;
+	 col = 0;
 	}
 
 }
-
 return 0;
 }
-
 
