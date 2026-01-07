@@ -9,25 +9,29 @@ individual charaters from a stream instead of processing data from a buffer*/
 
 
 int main(void){
-char arr[MAXLENGTH];
 int c;
 int col;
-int blank;
+int blanks;
 
 
 col = 0;
-blank = 0;
+blanks = 0;
 
 while((c = getchar()) != EOF){
-	if(c != '\t' && c != '\n'){
-		printf("%d: ", col);
-		printf("%c\n", c);
+	if(c == '\t'){
+		blanks = TABSTOP - (col % TABSTOP);
+		col += blanks;
+		while(blanks > 0){
+			printf(" ");
+			blanks--;
+		}
+	}else if(c == '\n'){
+		col = 0;
+		printf("\n");
+	}else{
+		printf("%c", c);
 		col++;
 	}
-	if(c == '\n'){
-	 col = 0;
-	}
-
 }
 return 0;
 }
