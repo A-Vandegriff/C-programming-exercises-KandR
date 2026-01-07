@@ -9,6 +9,23 @@ individual charaters from a stream instead of processing data from a buffer*/
 
 
 int main(void){
+char arr[MAXLENGTH];
+int c;
+int col;
+int blank;
+
+
+col = 0;
+blank = 0;
+
+while((c = getchar()) != EOF){
+	col++;
+	if(c == '\n'){
+		col = 0;
+	}
+
+}
+
 return 0;
 }
 
