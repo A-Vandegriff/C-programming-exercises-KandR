@@ -15,6 +15,7 @@ col = 0;
 
 while((c = getchar()) != EOF){
 	if(c == '\n'){
+		printf("\n");
 		col = 0;
 	}else if(c == ' '){
 		while(c == ' '){
@@ -34,7 +35,9 @@ while((c = getchar()) != EOF){
 			col++;
 			blanks--;
 		}
-		
+		if(c != '\t'){
+			printf("%c", c);
+		}
 	}else if(c == '\t'){
 		
 	}else{
