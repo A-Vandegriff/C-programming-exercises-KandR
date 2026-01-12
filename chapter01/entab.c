@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+
 #define TABSTOP 8
 
 
@@ -12,7 +13,10 @@ while((c = getchar()) != EOF){
 	if(c == '\n'){
 		col = 0;
 	}else if(c == ' '){
-		
+		while(c == ' '){
+			blanks++;
+			col++;
+		}
 	}else if(c == '\t'){
 		
 	}else{
