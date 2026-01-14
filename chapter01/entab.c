@@ -6,15 +6,20 @@ minimum number of tabs and blanks to acheive the same spacing*/
 
 int main(void)
 {
-char c;
+int c;
 int blanks;
 int col;
 int next_tab;
+blanks = 0;
+col = 0;
+
 //need to make an input stream
 while((c = getchar()) != EOF){
 	if(c == ' '){
 		blanks++;
-	}else{
+		continue;
+	}
+		while(blanks > 0){
 		//need to process potentially added blanks
 		next_tab = TABSTOP - (col % TABSTOP);
 		if(blanks >= next_tab && next_tab > 1){
@@ -22,20 +27,21 @@ while((c = getchar()) != EOF){
 			col += next_tab;
 			blanks -= next_tab;
 		}else{
-			while(blanks > 0){
 				putchar(' ');
 				col++;
 				blanks--;
-			}
 		}
-	}
-	if(c == '\n'){
+	   }
+		if(c == '\n'){
 		col = 0;
 		putchar('\n');
 	}else if(c == '\t'){
 		next_tab = TABSTOP - (col % TABSTOP);
 		col += next_tab;
-		putchar();
+		putchar('\t');
+	}else{
+		putchar(c);
+		col++;
 	}
 
 }
