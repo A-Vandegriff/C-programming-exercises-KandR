@@ -8,8 +8,10 @@
 //if the word (no blanks) passes through nth col, need to pick a fold spot (nth col)
 //for super long inputs the program should keep folding
 
-
 #include <stdio.h>
+
+#define MAXBLANKS 15
+
 
 int main(void){
 
