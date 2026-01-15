@@ -25,16 +25,19 @@ i = 0;
 
 //need to build line array WHILE calculating last blank
 while((c = getchar()) != EOF){
-	if(i < 14){
+	//if i = 14 "fold"
+	if(i < 15){
 	col++;
 	line[i] = c;
-		if(c == ' '){
-			if(){
-		
+		if(c == ' ' && i > 0){
+			if(line[i-1] != ' '){
+				lastblank = i;
 			}
 		}
 	}
 
+}else{
+//fold
 }
 
 return 0;
