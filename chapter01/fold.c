@@ -31,10 +31,11 @@ to_tab = 0;
 while((c = getchar()) != EOF){
 	//if i = 14 "fold"
 	//a blank at line[0] would not be after a char so dont count
-
+	//need to clear buffer when i > 14
 
 
 }
 return 0;
 }
+
 
