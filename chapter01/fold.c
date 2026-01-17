@@ -20,6 +20,8 @@ int col; //check leftover char of line arr, move them to front of new line
 int lastblank; //gets compared with prev blank, (make sure char is before blank)
 char line[FOLD];//array for line
 int to_tab;
+int i;
+i = 0;
 col = 0;
 lastblank = 0;
 to_tab = 0;
@@ -28,35 +30,10 @@ to_tab = 0;
 //need to build line array WHILE calculating last blank
 while((c = getchar()) != EOF){
 	//if i = 14 "fold"
-	if(col < 15){
-		//a blank at line[0] would not be after a char so dont count
-		if(c == ' ' && col > 0){
-			if(line[col-1] != ' '){
-				//find last blank
-				line[col] = ' ';
-				lastblank = col;
-				col++;
-			}else{
-			line[col] = ' ';
-			col++;
-			}
-	}else if(c == '\t'){
-		to_tab = TABSTOP - (col % TABSTOP);
-		putchar('\t');
-		col += to_tab;
-		//need to find a way to add blanks up till tabstop
+	//a blank at line[0] would not be after a char so dont count
 
-	}else if(c == '\n'){
-		printf("%s", line);
-		col = 0;
-	}else{
-		line[col] = c;
-		col++;
-	}
 
-}else{
-//fold
-}
+
 }
 return 0;
 }
